@@ -1,0 +1,15 @@
+[I 200102 10:24:45 demo2:5] this is info
+[D 200102 10:36:38 demo2:5] this is info
+[D 200102 10:36:45 demo2:5] this is debug
+[D 200102 10:36:56 demo2:5] this is debug
+[I 200102 10:36:56 demo2:6] this is debug
+[D 200102 10:37:06 demo2:5] this is debug
+[I 200102 10:37:06 demo2:6] this is info
+[I 200102 10:48:10 demo2:6] this is info
+[I 200102 11:27:52 demo2:6] this is info
+[W 200102 11:27:52 demo2:7] this is info
+[I 200102 11:28:00 demo2:6] this is info
+[W 200102 11:28:00 demo2:7] this is warning
+[D 200102 11:28:14 demo2:5] this is debug
+[I 200102 11:28:14 demo2:6] this is info
+[W 200102 11:28:14 demo2:7] this is warning
