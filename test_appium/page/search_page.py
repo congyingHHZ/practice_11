@@ -30,9 +30,9 @@ class Search(BasePage):
     def add_stock(self):
         # 加自选
         self.find(MobileBy.ID, 'add_attention').click()
-        self._driver.press_keycode(4)
+        self.find(MobileBy.ID, 'action_close').click()
 
-    def get_stock_state(self,key:string):
+    def get_stock_state(self, key: string):
         stock_state_locator = (MobileBy.XPATH,
                                f'//*[@text="{key}"]/../../..//*[contains(@resource-id, "add_attention")]/*')
 

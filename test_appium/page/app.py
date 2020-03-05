@@ -30,7 +30,7 @@ class App(BasePage):
             caps["chromedriverExecutable"] = r"D:\chromedriver\43.0.2357.0\chromedriver.exe"
 
             self._driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
-            self._driver.implicitly_wait(20)
+            self._driver.implicitly_wait(5)
         else:
             print(self._driver)
             # restart app ???
