@@ -13,14 +13,6 @@ class Trade(BasePage):
 
     def optional_share(self):
         self.find(MobileBy.XPATH, '//*[contains(@resource-id, "title_text") and @text="自选股"]').click()
-        # sleep(5)
-        # for i in range(5):
-        #     print(self._driver.contexts)
-        #     sleep(0.5)
-        # print(self._driver.page_source)
-        #
-        # print(self._driver.page_source)
-        # # print(self._driver.window_handles)
 
         self.find(MobileBy.XPATH, '//*[@text="自选股"]').click()
         stocks = self.find_elements(MobileBy.ID, 'portfolio_stockName')
