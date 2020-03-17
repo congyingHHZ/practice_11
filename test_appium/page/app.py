@@ -22,7 +22,7 @@ class App(BasePage):
             caps["deviceName"] = "emulator-5554"
             caps["appPackage"] = self._package
             caps["appActivity"] = self._activity
-            caps["noReset"] = True
+            # caps["noReset"] = True
             # caps["dontStopAppOnReset"] = True
             caps["unicodeKeyboard"] = True
             caps["resetKeyboard"] = True

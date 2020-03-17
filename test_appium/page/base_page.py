@@ -5,6 +5,31 @@ from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
+error_max = 3
+error_count = 0
+_black_list = [
+    (By.ID, 'tv_agree'),
+    (By.XPATH, '//*[@text="确定"]'),
+    (By.ID, 'image_cancel'),
+    (By.XPATH, '//*[@text="下次再说"]')]
+
+
+# def popups_handling(func):
+#     def wrapper(*args,**kwargs):
+#         global error_count
+#         try:
+#             return func(*args, **kwargs)
+#         except Exception as e:
+#             error_count += 1
+#             if error_count == error_max:
+#                 raise e
+#             for black_locator in _black_list:
+#                 black_elements = _driver.find_elements(*black_locator)
+#                 if not black_elements == []:
+#                     black_elements[0].click()
+#                     return wrapper(*args,**kwargs)
+#             logging.warn('black list not found!')
+#             raise e
 
 class BasePage:
     _driver: WebDriver

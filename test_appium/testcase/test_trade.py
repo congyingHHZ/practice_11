@@ -14,6 +14,8 @@ class TestTrade:
         assert '京东' in self.main.goto_stocks().optional_share()
 
     def test_xx(self):
-        print(self.main.goto_stocks().optional_share())
+        self.main.goto_stocks().goto_search().search('jingdong').add_stock()
+
+        assert "已添加" in self.main.goto_stocks().goto_search().search('jingdong').get_stock_state("JD")
 
 

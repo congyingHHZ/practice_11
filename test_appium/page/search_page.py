@@ -35,11 +35,20 @@ class Search(BasePage):
         return self
 
     def get_stock_state(self, key: string):
-        stock_state_locator = (MobileBy.XPATH,
-                               f'//*[@text="{key}"]/../../..//*[contains(@resource-id, "add_attention")]/*')
+        # stock_state_locator = (MobileBy.XPATH,
+        #                        f'//*[@text="{key}"]/../../..//*[contains(@resource-id, "add_attention")]/*')
+        #
+        # result = self.find(stock_state_locator).get_attribute('resource-id')
+        # if 'followed_btn' in result:
+        #     return '已添加'
+        # else:
+        #     return '加自选'
 
-        result = self.find(stock_state_locator).get_attribute('resource-id')
-        if 'followed_btn' in result:
-            return '已添加'
-        else:
-            return '加自选'
+        # 根据大佬的思路做了更改
+        stock_state_locator = (MobileBy.XPATH,
+                               f'//*[@text="{key}"]/../../..//*[contains(@resource-id, "add_attention")]//*'
+                               f'[contains(@resource-id, "followed")]')
+
+        result = self.find(stock_state_locator).get_attribute('text')
+
+        return result
