@@ -1,5 +1,6 @@
 from appium.webdriver.common.mobileby import MobileBy
 from test_appium.page.base_page import BasePage
+from test_appium.page.profile_page import Profile
 from test_appium.page.search_page import Search
 from test_appium.page.trade_page import Trade
 
@@ -15,3 +16,7 @@ class Main(BasePage):
         reade_locator = (MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]')
         self.find(reade_locator).click()
         return Trade(self._driver)
+
+    def goto_profile(self):
+        self.find(MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="我的"]').click()
+        return Profile(self._driver)

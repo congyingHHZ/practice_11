@@ -12,10 +12,11 @@ class Search(BasePage):
     # 子类不重写__init__，实例化时会自动调用父类的__init__
     # 实例化Search传入_driver，BasePage中定义的那个self._driver值就会被改写
 
+    _name_locator = (MobileBy.ID, "name")  # 常用定位符，类变量，便于多个方法调用，可根据不同版本、平台进行改造
     def search(self, key: string):
         self.find(MobileBy.ID, 'search_input_text').send_keys(key)
         self.find(MobileBy.ID, 'search_input_text').click()
-        self.find(MobileBy.ID, "name").click()
+        self.find(self._name_locator).click()
         # self.find(MobileBy.XPATH, '//*[@text="搜索"]').click()
         # //*[@content-desc="搜索"]
         return self
@@ -31,6 +32,7 @@ class Search(BasePage):
         # 加自选
         self.find(MobileBy.ID, 'add_attention').click()
         self.find(MobileBy.ID, 'action_close').click()
+        return self
 
     def get_stock_state(self, key: string):
         stock_state_locator = (MobileBy.XPATH,

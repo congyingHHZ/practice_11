@@ -1,5 +1,6 @@
 from appium import webdriver
 from appium.webdriver.webdriver import WebDriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 from test_appium.page.base_page import BasePage
 from test_appium.page.main_page import Main
@@ -37,7 +38,21 @@ class App(BasePage):
             self._driver.start_activity(self._package, self._activity)
         return self  # 返回实例自身，链式调用，可以继续调用类下的方法
 
+    def restart(self):
+        pass
+
     def main(self) -> Main:
+        def wait_load(x):
+            source = self._driver.page_source
+            main_page_flag = ["我的", "同意", "image_cancel"]
+            # return True if [i for i in main_page_flag if i in source] else False
+            for i in main_page_flag:
+                if i in source:
+                    return True
+            else:
+                return False
+
+        WebDriverWait(self._driver, 10).until(wait_load)
         return Main(self._driver)
 
     def kill(self):

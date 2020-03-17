@@ -35,7 +35,7 @@ class Contacts(BasePage):
         self.find(By.CSS_SELECTOR, '.js_btn_save').click()
 
     def add_member_success(self):
-        # todo:通讯录成员存在
+        # 通讯录成员存在
         self.find(By.ID, 'menu_index').click()
         self.find(By.ID, 'menu_contacts').click()
         result = list()

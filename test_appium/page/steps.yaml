@@ -1,0 +1,6 @@
+
+- by: id
+  locatol: add_attention
+  action: find
+
+- action: click
