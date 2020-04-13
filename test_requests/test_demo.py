@@ -1,6 +1,7 @@
 from pprint import pprint
 
 import requests
+from requests import Session
 
 proxies = {"http": "http://127.0.0.1:8888",
            "https": "https://127.0.0.1:8888"}
@@ -51,3 +52,10 @@ def test_upload():
     assert r.status_code == 200
     assert r.json()["headers"]["User-Agent"] == "cy"
     assert r.json()["headers"]["Hh"] == "new"  # 头信息 大写
+
+
+def test_session():
+    s = Session()
+    s.proxies = proxies
+    s.verify = False
+    s.get("https://httpbin.testing-studio.com/post")
